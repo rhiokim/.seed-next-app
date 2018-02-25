@@ -31,6 +31,7 @@ This's seed project built on top of next.js
 * gzip compression with `compression`
 * secure headers with `helmet`
 * dockerize
+* wepback dashboard with `Jarvis`
 
 ## How to use
 

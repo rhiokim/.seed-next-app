@@ -79,7 +79,8 @@
     "npm-run-all": "^4.1.1",
     "prettier-eslint-cli": "^4.7.1",
     "rimraf": "^2.6.2",
-    "validate-commit-msg": "^2.12.1"
+    "validate-commit-msg": "^2.12.1",
+    "webpack-jarvis": "^0.3.0"
   },
   "lint-staged": {
     "*.js": [
