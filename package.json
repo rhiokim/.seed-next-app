@@ -1,6 +1,6 @@
 {
   "name": "seed-next-app",
-  "version": "0.4.0",
+  "version": "0.5.0",
   "description": "Seed Project based on Next.js",
   "main": "index.js",
   "license": "MIT",
@@ -28,7 +28,7 @@
     "commit": "git cz",
     "commitmsg": "npm run lint:msg",
     "precommit": "lint-staged",
-    "prepush": "npm test",
+    "prepush": "npm test -u",
     "release": "conventional-github-releaser -p angular",
     "docker:build": "docker build --tag seed-next-app . && npm run docker:images",
     "docker:images": "docker images | grep seed-next-app",
