@@ -1,9 +1,14 @@
 module.exports = {
   "parser": "babel-eslint",
   "env": {
-    "es6": true
+    "es6": true,
+    "jest": true
   },
-  "globals": {},
+  "globals": {
+    "page": true,
+    "browser": true,
+    "expectPage": true
+  },
   "plugins": ["flowtype", "react"],
   "extends": ["standard", "standard-flow", "react-app"],
   "settings": {
