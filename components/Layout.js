@@ -3,6 +3,9 @@ import React from 'react'
 import Head from 'next/head'
 import NProgress from 'nprogress'
 import Router from 'next/router'
+import firebase from 'firebase'
+import 'isomorphic-fetch'
+import clientCredentials from '../credentials/client'
 
 import { Nav, Footer, Copyright } from './'
 
@@ -17,6 +20,33 @@ type Props = {
 }
 
 export default class Layout extends React.Component<Props, {}> {
+  componentDidMount () {
+    firebase.initializeApp(clientCredentials)
+
+    firebase.auth().onAuthStateChanged(user => {
+      if (user) {
+        // eslint-disable-next-line no-undef
+        return user
+          .getIdToken()
+          .then(token => {
+            // eslint-disable-next-line no-undef
+            return fetch('/api/login', {
+              method: 'POST',
+              headers: new Headers({ 'Content-Type': 'application/json' }),
+              credentials: 'same-origin',
+              body: JSON.stringify({ token })
+            })
+          })
+          .then(res => {})
+      } else {
+        fetch('/api/logout', {
+          method: 'POST',
+          credentials: 'same-origin'
+        }).then(() => {})
+      }
+    })
+  }
+
   render () {
     const { children } = this.props
     return (

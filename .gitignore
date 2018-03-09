@@ -25,3 +25,5 @@ v8.log
 # flowtype
 flow-typed/npm
 
+# firebase
+credentials
