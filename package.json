@@ -21,6 +21,8 @@
     "test": "jest",
     "static": "next export",
     "start:express": "NODE_ENV=production node server.js",
+    "predist": "npm run build",
+    "dist": "pkg index.js --out-dir dist",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty './**/*.@(js)'",
     "lint:msg": "validate-commit-msg",
     "flow": "flow",
@@ -83,6 +85,7 @@
     "lint-staged": "^6.1.1",
     "node-sass": "^4.7.2",
     "npm-run-all": "^4.1.1",
+    "pkg": "^4.3.0",
     "prettier-eslint-cli": "^4.7.1",
     "puppeteer": "^1.1.1",
     "react-test-renderer": "^16.2.0",
@@ -115,5 +118,21 @@
     "cz-customizable": {
       "config": ".cz-config.js"
     }
+  },
+  "pkg": {
+    "assets": [
+      ".next",
+      "actions",
+      "constants",
+      "pages",
+      "reducers",
+      "static",
+      "store",
+      "server",
+      "comopnents"
+    ],
+    "scripts": [
+      ".next/dist/**/*.js"
+    ]
   }
 }
