@@ -2,7 +2,12 @@
   "env": {
     "development": {
       "presets": ["next/babel"],
-      "plugins": [
+      "plugins": [[
+          "inline-import",
+          {
+            "extensions": [".css"]
+          }
+        ],
         ["transform-define", "./env.config.js"],
         "transform-flow-strip-types"
       ]
