@@ -16,7 +16,16 @@
       "presets": ["next/babel"]
     },
     "test": {
-      "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]]
+      "presets": [["next/babel", { "preset-env": { "modules": "commonjs" } }]],
+      "plugins": [[
+          "inline-import",
+          {
+            "extensions": [".css"]
+          }
+        ],
+        ["transform-define", "./env.config.js"],
+        "transform-flow-strip-types"
+      ]
     }
   }
 }
