@@ -28,10 +28,6 @@ app.prepare().then(() => {
   /* gzip */
   server.use(compression({ threshold: 0 }))
 
-  /* LRU Cache */
-  /* Routes with LRU Cache */
-  server.use(routeHandler)
-
   /* Server API */
   // server.use('/api', someRoutes)
 
@@ -39,6 +35,10 @@ app.prepare().then(() => {
   server.get('/service-worker.js', (req, res) =>
     app.serveStatic(req, res, resolve('./.next/service-worker.js'))
   )
+
+  /* LRU Cache */
+  /* Routes with LRU Cache */
+  server.use(routeHandler)
 
   server.get('*', (req, res) => handler(req, res))
 
