@@ -13,7 +13,7 @@ This's seed project built on top of next.js
 * redux, redux-thunk
 * next-redux-wrapper
 * express
-* jest?
+* jest, puppeteer
 
 **development**
 
@@ -25,12 +25,17 @@ This's seed project built on top of next.js
 
 * universal configuration
 * nprogress with `nprogress`
-* with-sass with `@next/with-sass`
 * ssr-caching with lru-cache with `node-lru-cache`
 * service worker for pre-cache with `service-worker`
 * gzip compression with `compression`
 * secure headers with `helmet`
 * dockerize
+
+## Built-in Plugin
+
+* with-sass with `@next/with-sass` (zeit/@with-sass)
+* next-bundle-analyzer with `@next/next-bundle-analyzer` (zeit/@next-bundle-analyzer)
+* withOffline with `hanford/next-offline`
 
 ## How to use
 
