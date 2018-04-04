@@ -23,6 +23,9 @@
     "start:express": "NODE_ENV=production node server.js",
     "predist": "npm run build",
     "dist": "pkg index.js --out-dir dist",
+    "analyze:browser": "BUNDLE_ANALYZE=browser npm run build",
+    "analyze:server": "BUNDLE_ANALYZE=server npm run build",
+    "analyze:both": "BUNDLE_ANALYZE=both npm run build",
     "lint": "eslint --format=node_modules/eslint-formatter-pretty './**/*.@(js)'",
     "lint:msg": "validate-commit-msg",
     "flow": "flow",
@@ -39,6 +42,7 @@
     "docker": "npm run docker:rm && npm run docker:build && npm run docker:run"
   },
   "dependencies": {
+    "@zeit/next-bundle-analyzer": "^0.1.1",
     "compression": "^1.7.2",
     "express": "^4.16.3",
     "helmet": "^3.12.0",

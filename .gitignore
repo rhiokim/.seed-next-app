@@ -12,6 +12,7 @@ __snapshots__
 /dist
 /.next
 /out
+/.bundles
 
 # misc
 .DS_Store
