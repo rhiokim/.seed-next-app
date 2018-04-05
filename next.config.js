@@ -3,20 +3,8 @@ const withOffline = require('next-offline')
 const withBundleAnalyzer = require('@zeit/next-bundle-analyzer')
 
 module.exports = withSass(
-  withBundleAnalyzer(
-    withOffline({
-      analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
-      analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
-      bundleAnalyzerConfig: {
-        server: {
-          analyzerMode: 'static',
-          reportFilename: '../../.bundles/server.html'
-        },
-        browser: {
-          analyzerMode: 'static',
-          reportFilename: '../.bundles/client.html'
-        }
-      },
+  withBundleAnalyzer({
+    ...withOffline({
       webpack: config => {
         // Fixes npm packages that depend on `fs` module
         config.node = {
@@ -32,6 +20,18 @@ module.exports = withSass(
         '/example': { page: '/example' },
         '/posts': { page: '/posts' }
       })
-    })
-  )
+    }),
+    analyzeServer: ['server', 'both'].includes(process.env.BUNDLE_ANALYZE),
+    analyzeBrowser: ['browser', 'both'].includes(process.env.BUNDLE_ANALYZE),
+    bundleAnalyzerConfig: {
+      server: {
+        analyzerMode: 'static',
+        reportFilename: '../../.bundles/server.html'
+      },
+      browser: {
+        analyzerMode: 'static',
+        reportFilename: '../.bundles/client.html'
+      }
+    }
+  })
 )
